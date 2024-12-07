@@ -1,18 +1,13 @@
 <div class="container">
   <h2>Gerencia suas listas aqui!</h2>
-  <input
-    type="text"
-    [(ngModel)]="novaLista"
-    placeholder="Nova Lista"
-    class="form-control"
-  />
+  <input type="text" [(ngModel)]="novaLista" placeholder="Nova Lista" class="form-control" />
   <button (click)="adicionarLista()" class="btn btn-primary mt-2">Adicionar</button>
 
   <ul class="list-group mt-3">
     <li *ngFor="let lista of listas" class="list-group-item d-flex justify-content-between align-items-center">
       {{ lista.name }}
-      <button class="btn btn-danger btn-sm" (click)="removerLista(lista._id)">
-        Remover
+      <button (click)="removerLista(lista._id)" class="btn btn-danger btn-sm" title="Remover Lista">
+        <i class="fas fa-trash-alt"></i>
       </button>
       <app-itens-lista [listId]="lista._id"></app-itens-lista>
     </li>
