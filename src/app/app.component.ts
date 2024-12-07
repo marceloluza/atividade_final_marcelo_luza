@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
+  template: `
+    <div class="container">
+      <h1>Lista de Compras</h1>
+      <app-lista-compras></app-lista-compras>
+    </div>
+  `,
+  styles: [
+    `
+      .container {
+        margin-top: 20px;
+      }
+    `,
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  public title = 'angular17-app';
-}
+export class AppComponent {}
