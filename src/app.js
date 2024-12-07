@@ -12,10 +12,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/lista-de-compras', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('Conectado ao MongoDB'))
+mongoose.connect('mongodb://localhost:27017/lista-de-compras')
+  .then(() => console.log('Conectado ao MongoDB'))
   .catch(err => console.error(err));
 
 app.use('/api/lists', listRoutes);
