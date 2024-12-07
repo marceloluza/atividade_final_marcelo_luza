@@ -6,8 +6,8 @@
   <ul class="list-group mt-3">
     <li *ngFor="let lista of listas" class="list-group-item d-flex justify-content-between align-items-center">
       {{ lista.name }}
-      <button (click)="removerLista(lista._id)" class="btn btn-danger btn-sm" title="Remover Lista">
-        <i class="fas fa-trash-alt"></i>
+      <button class="btn btn-danger btn-sm" (click)="removerLista(lista._id)">
+        <i class="fas fa-trash-alt"></i> Remover lista
       </button>
       <app-itens-lista [listId]="lista._id"></app-itens-lista>
     </li>
