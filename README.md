@@ -1,27 +1,71 @@
-# Angular17App
+# Lista de Compras - Projeto de CRUD com Node.js, Angular e MongoDB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+## Descrição
+A aplicação **Lista de Compras** é um sistema que permite criar, listar, atualizar e excluir listas de compras e seus respectivos itens. É uma solução simples e eficiente para gerenciar suas compras de forma organizada e intuitiva.
 
-## Development server
+## Funcionalidades
+- **CRUD de Listas de Compras:** Criação, leitura, atualização e exclusão de listas.
+- **CRUD de Itens:** Gerenciamento de itens dentro de cada lista, incluindo o status "pendente" ou "comprado".
+- **Marcar como Comprado:** Possibilidade de alterar o status dos itens.
+- **Validações:** Impede a criação de itens com nomes vazios ou contendo apenas números.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
+### Backend:
+- **Node.js** com **Express.js** para construção do servidor.
+- **MongoDB** para armazenamento dos dados.
+- **Mongoose** para modelagem e manipulação do banco de dados.
+- **Body-parser** e **CORS** para middleware.
 
-## Code scaffolding
+### Frontend:
+- **Angular** para interface de usuário dinâmica e responsiva.
+- **Bootstrap** para estilização.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Containerização:
+- **Docker** com **docker-compose** para facilitar a configuração e execução do projeto.
 
-## Build
+## Estrutura do Projeto
+- **Backend:** Localizado em `src/`, gerencia APIs RESTful para listas e itens.
+- **Frontend:** Localizado em `src/app/`, oferece uma interface amigável e responsiva.
+- **Banco de Dados:** Configurado no MongoDB.
+- **Docker:** Arquivo `docker-compose.yml` e `Dockerfile` para execução em contêiner.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
+### Requisitos:
+- Node.js (v14 ou superior)
+- Angular CLI
+- Docker e Docker Compose
 
-## Running unit tests
+### Passos:
+1. Clone este repositório:
+   ```bash
+   git clone <url-do-repositorio>
+   cd lista-de-compras
+   ```
+2. Instale as dependências do backend e frontend:
+   ```bash
+   npm install
+   ```
+3. Inicie o projeto com Docker:
+   ```bash
+   docker-compose up --build
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Endpoints
+- **Listas:**
+  - GET `/api/lists`
+  - POST `/api/lists`
+  - PUT `/api/lists/:id`
+  - DELETE `/api/lists/:id`
 
-## Running end-to-end tests
+- **Itens:**
+  - GET `/api/items?listId=:listId`
+  - POST `/api/items`
+  - PUT `/api/items/:id`
+  - DELETE `/api/items/:id`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Autor
+**Marcelo Luza**
 
-## Further help
+## Licença
+Este projeto é licenciado sob a Licença MIT.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,73 +1,46 @@
-<div class="container mt-5">
-  <h4 class="text-center mb-4">Itens da Lista</h4>
-
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="form-group">
-        <label for="novoItem">Nome do Item</label>
-        <input
-          type="text"
-          [(ngModel)]="novoItem"
-          placeholder="Novo Item"
-          class="form-control"
-          id="novoItem"
-        />
-      </div>
-      <div class="form-group mt-2">
-        <label for="quantidade">Quantidade</label>
-        <input
-          type="number"
-          [(ngModel)]="quantidade"
-          placeholder="Quantidade"
-          class="form-control"
-          min="1"
-          id="quantidade"
-        />
-      </div>
-      <button
-        (click)="adicionarItem()"
-        class="btn btn-primary mt-3"
-        [disabled]="quantidade < 1 || !novoItem.trim()"
-      >
-        Adicionar Item
-      </button>
-    </div>
-  </div>
+<div class="container mt-3">
+  <h4>Itens da Lista</h4>
+  <input
+    type="text"
+    [(ngModel)]="novoItem"
+    placeholder="Novo Item"
+    class="form-control"
+  />
+  <input
+    type="number"
+    [(ngModel)]="quantidade"
+    placeholder="Quantidade"
+    class="form-control mt-2"
+  />
+  <button
+    (click)="adicionarItem()"
+    class="btn btn-primary mt-2"
+    [disabled]="isItemInvalid() || quantidade <= 0"
+  >
+    Adicionar Item
+  </button>
 
   <ul class="list-group mt-3">
     <li
       *ngFor="let item of itens"
-      class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-2"
+      class="list-group-item d-flex justify-content-between align-items-center"
     >
-      <div class="d-flex align-items-center">
-        <!-- Ícones para os itens -->
-        <span class="mr-3">
-          <i
-            class="fas"
-            [ngClass]="{
-              'fa-check-circle': item.status === 'purchased',
-              'fa-clock': item.status === 'pending'
-            }"
-            style="font-size: 1.5rem; color: #4CAF50;"
-          ></i>
-        </span>
-        <span>{{ item.name }} - {{ item.quantity }}</span>
-      </div>
-      <div>
-        <button
-          (click)="alterarStatus(item)"
-          class="btn btn-info btn-sm"
-          *ngIf="item.status === 'pending'"
-        >
-          Marcar como Comprado
-        </button>
+      <span>
+        {{ item.name }} - {{ item.quantity }}
         <span
-          *ngIf="item.status === 'purchased'"
-          class="badge badge-success"
+          class="mx-2 badge"
+          [ngClass]="{
+            'badge-success': item.status === 'comprado',
+            'badge-warning': item.status === 'pendente',
+            'text-dark': item.status === 'pendente' || item.status === 'comprado'
+          }"
         >
-          Comprado
+          {{ item.status }}
         </span>
-      </div>
+      </span>
+      <button (click)="alterarStatus(item)" class="btn btn-secondary btn-sm">
+        Alterar Status
+      </button>
     </li>
   </ul>
 </div>

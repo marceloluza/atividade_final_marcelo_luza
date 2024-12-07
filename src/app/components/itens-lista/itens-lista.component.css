@@ -1,0 +1,14 @@
+.badge-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.badge {
+  padding: 6px;
+  border-radius: 5px;
+}
