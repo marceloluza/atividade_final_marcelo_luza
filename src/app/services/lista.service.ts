@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListaService {
-  private baseUrl = 'http://localhost:3000/api/lists'; // Altere conforme sua API
+  private baseUrl = 'http://localhost:3000/api/lists';
 
   constructor(private http: HttpClient) {}
 
