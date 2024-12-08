@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
     `
       .container {
         margin-top: 20px;
+        text-align: center;
       }
     `,
   ],
