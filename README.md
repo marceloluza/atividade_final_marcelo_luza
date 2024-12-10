@@ -39,7 +39,7 @@ A aplicação **Lista de Compras** é um sistema que permite criar, listar, atua
 1. Clone este repositório:
    ```bash
    git clone <url-do-repositorio>
-   cd lista-de-compras
+   cd atividade_final_marcelo_luza
    ```
 2. Instale as dependências do backend e frontend:
    ```bash
